@@ -250,18 +250,18 @@ document.addEventListener('DOMContentLoaded', () => {
   //  Reset Game function
   const resetGame = () => {
     scoreDisplay.innerText = 0
-    random = 0
-    nextRandom = 0
+    random = Math.floor(Math.random() * tetrominoes.length)
+    undraw()
     currentPosition = 4
     currentRotation = 0
+    current = tetrominoes[random][currentRotation]
     squares.forEach((square, index) => {
       index >= height * width ? square.className='square floor taken' : square.className='square'
       
     })
     miniSquares.forEach(square => square.className= 'mini-square')
     clearInterval(timerId)
-    undraw()
-
+    
     draw()
     timerId = setInterval(moveDown, 400)
     nextRandom = Math.floor(Math.random() * tetrominoes.length)
