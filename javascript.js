@@ -118,7 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function miniDisplay() {
     // Clear mini grid of any tetromino class
-    miniSquares.forEach(square => square.className = 'mini-square')
+    
+    miniSquares.forEach(square => square.className='mini-square')
     // Get next Tetromino
     nextTetromino[nextRandom].forEach(index => {
       miniSquares[index].classList.add('tetromino', `color-${nextRandom}`)
@@ -216,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       draw()
       timerId = setInterval(moveDown, 400)
-      nextRandom = Math.floor(Math.random() * tetrominoes.length)
       miniDisplay()
     }
   })
